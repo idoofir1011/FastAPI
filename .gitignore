@@ -1,0 +1,14 @@
+# secrets and stuff
+.env
+
+#venvs
+.venv/
+venv/
+
+
+__pycache__/
+*.pyc
+
+
+.vscode/
+.conda/
