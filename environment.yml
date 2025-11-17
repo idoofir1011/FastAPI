@@ -23,7 +23,6 @@ dependencies:
 
   - pip:
     - passlib==1.7.4  
-    - bcrypt          
+    - bcrypt   ==4.0.1       
     - cryptography    
     - pyjwt          
-
