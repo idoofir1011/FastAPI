@@ -16,12 +16,14 @@ dependencies:
   - python-dotenv
   - python-multipart
   - email-validator
-  - passlib
-  - bcrypt
-  - cryptography
-  - pyjwt
-  
+  # - passlib==1.7.4
+  # - cryptography
+  # - pyjwt
+
 
   - pip:
-      - psycopg2-binary==2.9.11
+    - passlib==1.7.4  
+    - bcrypt          
+    - cryptography    
+    - pyjwt          
 

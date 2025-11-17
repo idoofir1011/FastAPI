@@ -5,4 +5,27 @@ services:
       - 8000:8000
     env_file:
       - ./.env
-      
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+  
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=9002913
+      - POSTGRES_DB=FastAPI
+      - POSTGRES_USER=postgres
+    volumes:
+      - postgres-db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  postgres-db:
+
+

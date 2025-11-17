@@ -17,9 +17,13 @@ class Settings(BaseSettings):
     @property
     def DATABASE_URL(self) -> str:
         return (
-            f"postgresql://{self.PGUSER}:{self.PGPASSWORD}"
+            f"postgresql+psycopg://{self.PGUSER}:{self.PGPASSWORD}"
             f"@{self.PGHOST}:{self.PGPORT}/{self.PGDATABASE}"
         )
+        # return (
+        #     f"postgresql://{self.PGUSER}:{self.PGPASSWORD}"
+        #     f"@{self.PGHOST}:{self.PGPORT}/{self.PGDATABASE}"
+        # )
 
 
 settings = Settings()
